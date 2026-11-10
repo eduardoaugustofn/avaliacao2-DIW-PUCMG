@@ -1,0 +1,114 @@
+@font-face {
+  font-family: "Rye";
+  src: url("../fonts/rye.woff2") format("woff2");
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #f5e6c4;
+  min-height: 100vh;
+  background-color: #4a2c17;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    #4a2c17 0px,
+    #4a2c17 118px,
+    #33200f 118px,
+    #33200f 121px
+  );
+}
+
+h1, h2, h3, .navbar-brand, .nome-peao {
+  font-family: "Rye", serif;
+}
+
+h1, h2 {
+  color: #f2c867;
+}
+
+.navbar {
+  background-color: #3b2010;
+  border-bottom: 3px solid #a8743c;
+}
+
+.navbar-brand {
+  color: #f2c867;
+}
+
+.navbar-brand img {
+  height: 44px;
+  border-radius: 6px;
+}
+
+.navbar .nav-link {
+  color: #d8c39a;
+  font-weight: 600;
+}
+
+.navbar .nav-link.active {
+  background-color: #f2c867;
+  color: #2a170a;
+  border-radius: 6px;
+}
+
+.navbar-toggler {
+  border-color: #a8743c;
+  background-color: #f2c867;
+}
+
+.card {
+  background-color: #f5e6c4;
+  color: #2a170a;
+  border: none;
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.card-pequeno .card-img-top {
+  height: 110px;
+}
+
+.foto-fazendeiro {
+  max-width: 320px;
+  border: 5px solid #f2c867;
+}
+
+.item-placar.lider {
+  border: 3px solid #b8362c;
+}
+
+.foto-placar {
+  width: 160px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.progress {
+  background-color: #d8c8a8;
+}
+
+.progress-bar {
+  background-color: #6b4423;
+}
+
+.btn-warning {
+  background-color: #f2c867;
+  border-color: #f2c867;
+  color: #2a170a;
+}
+
+footer {
+  color: #b9a37a;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 576px) {
+  .foto-placar {
+    width: 100px;
+    height: 70px;
+  }
+}

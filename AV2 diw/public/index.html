@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Votação 2026 - Início</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-md navbar-dark">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <img src="img/logo-fazenda.jpg" alt="Logo A Fazenda">
+        Votação 2026
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="menu">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="votacao.html">Votar</a></li>
+          <li class="nav-item"><a class="nav-link" href="resultado.html">Resultado</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-5">
+    <div class="row align-items-center g-4">
+      <div class="col-md-5 text-center">
+        <img src="img/fazendeiro.jpg" class="rounded-circle img-fluid foto-fazendeiro" alt="Fazendeiro">
+      </div>
+      <div class="col-md-7">
+        <div class="card shadow">
+          <div class="card-body p-4">
+            <h2 class="card-title" style="color:#3a2313">É de casa! Aqui quem manda é o fazendeiro.</h2>
+            <p class="card-text">Três peões na roça esta semana. Só um volta pra sede, e quem decide é você.</p>
+            <a href="votacao.html" class="btn btn-danger btn-lg me-2">Votar agora</a>
+            <a href="resultado.html" class="btn btn-outline-dark btn-lg">Ver parcial</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="mt-5 mb-3">Na roça desta semana</h3>
+    <div class="row row-cols-1 row-cols-md-3 g-3" id="lista-roca"></div>
+  </main>
+
+  <footer class="text-center py-4">DIW 2026, PUC Minas</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/api.js"></script>
+  <script>
+    const listaRoca = document.getElementById("lista-roca");
+
+    async function carregarHome() {
+      try {
+        const naRoca = await listarNaRoca();
+        listaRoca.innerHTML = "";
+        naRoca.forEach(function (p) {
+          listaRoca.innerHTML += `
+            <div class="col">
+              <div class="card h-100 text-center">
+                <img src="${p.foto}" class="card-img-top" alt="${p.nome}" onerror="this.src='img/logo-fazenda.jpg'">
+                <div class="card-body">
+                  <h5 class="card-title nome-peao">${p.nome}</h5>
+                </div>
+              </div>
+            </div>`;
+        });
+      } catch (erro) {
+        listaRoca.innerHTML = '<p class="text-light">Não foi possível carregar os participantes.</p>';
+      }
+    }
+
+    carregarHome();
+  </script>
+</body>
+</html>
